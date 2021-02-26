@@ -13,17 +13,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
-    TextView language_dialog,newone,text1;
+    TextView language_dialog,text1;
     boolean lang_selected;
     Context context;
     Resources resources;
+    String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         language_dialog = (TextView)findViewById(R.id.dialog_language);
         text1=(TextView)findViewById(R.id.text1);
-        newone=findViewById(R.id.newone);
+
+
         language_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
                                 //if user select prefered language as English then
                                 if(Language[which].equals("ENGLISH"))
                                 {
+
                                     context = LocaleHelper.setLocale(MainActivity.this, "en");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                                    newone.setText(resources.getString(R.string.language));
+                                    str="en";
+
+
                                 }
                                 //if user select prefered language as Hindi then
                                 if(Language[which].equals("اردو"))
@@ -58,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "zh");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                                    newone.setText(resources.getString(R.string.language));
+                                    str="zh";
+
+
 
                                 }
                             }
@@ -75,7 +82,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void func(View view)
     {
-        Intent intent=new Intent(MainActivity.this, NewActivity.class);
+        Intent intent = new Intent(context, NewActivity.class);
+        intent.putExtra("language",str);
         startActivity(intent);
+
+
     }
 }
