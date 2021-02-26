@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "en");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                                    str="en";
+                                  str="en";
 
 
                                 }
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "zh");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                                    str="zh";
+                          str="zh";
 
 
 
@@ -82,10 +82,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void func(View view)
     {
-        Intent intent = new Intent(context, NewActivity.class);
+        Intent intent = new Intent(MainActivity.this, NewActivity.class);
         intent.putExtra("language",str);
         startActivity(intent);
-
 
     }
 }
