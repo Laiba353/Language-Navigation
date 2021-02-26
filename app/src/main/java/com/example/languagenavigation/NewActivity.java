@@ -14,8 +14,7 @@ import java.util.Locale;
 
 public class NewActivity extends AppCompatActivity {
     TextView name;
-    Context context;
-    Resources resources;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +22,13 @@ public class NewActivity extends AppCompatActivity {
         name=findViewById(R.id.name);
         Intent intent = getIntent();
         String languages = intent.getExtras().getString("language");
-        //Toast.makeText(context, languages, Toast.LENGTH_SHORT).show();
-        resources = context.getResources();
-        context = LocaleHelper.setLocale(NewActivity.this, languages);
-        name.setText(resources.getString(R.string.language));
+        Toast.makeText(this, languages, Toast.LENGTH_SHORT).show();
+        LocaleHelper.setLocale(NewActivity.this,languages);
+
+        //It is required to recreate the activity to reflect the change in UI.
+        recreate();
+
+
     }
 
 }
