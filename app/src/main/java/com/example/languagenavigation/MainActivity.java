@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
-    TextView language_dialog,text1;
+    TextView language_dialog,newone,text1;
     boolean lang_selected;
     Context context;
     Resources resources;
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         language_dialog = (TextView)findViewById(R.id.dialog_language);
         text1=(TextView)findViewById(R.id.text1);
+        newone=findViewById(R.id.newone);
         language_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "en");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
+                                    newone.setText(resources.getString(R.string.language));
                                 }
                                 //if user select prefered language as Hindi then
                                 if(Language[which].equals("اردو"))
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "zh");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
+                                    newone.setText(resources.getString(R.string.language));
+
                                 }
                             }
                         })
