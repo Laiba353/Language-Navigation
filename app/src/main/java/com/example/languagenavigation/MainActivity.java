@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "en");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                                  str="en";
+                                  str="ENGLISH";
 
 
                                 }
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                                     context = LocaleHelper.setLocale(MainActivity.this, "zh");
                                     resources = context.getResources();
                                     text1.setText(resources.getString(R.string.language));
-                          str="zh";
+                          str="اردو";
 
 
 

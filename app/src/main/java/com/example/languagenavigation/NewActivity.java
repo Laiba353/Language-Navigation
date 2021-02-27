@@ -25,15 +25,12 @@ public class NewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String languages = intent.getExtras().getString("language");
         Toast.makeText(this, languages, Toast.LENGTH_SHORT).show();
-
         if(languages.equals("ENGLISH"))
         {
 
             context = LocaleHelper.setLocale(NewActivity.this, "en");
             resources = context.getResources();
-            name.setText(resources.getString(R.string.language));
-
-
+            name.setText(resources.getString(R.string.myname));
 
         }
         //if user select prefered language as Hindi then
@@ -41,7 +38,7 @@ public class NewActivity extends AppCompatActivity {
         {
             context = LocaleHelper.setLocale(NewActivity.this, "zh");
             resources = context.getResources();
-            name.setText(resources.getString(R.string.language));
+            name.setText(resources.getString(R.string.myname));
 
         }
     }
