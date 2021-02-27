@@ -23,10 +23,7 @@ public class NewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String languages = intent.getExtras().getString("language");
         Toast.makeText(this, languages, Toast.LENGTH_SHORT).show();
-        LocaleHelper.setLocale(NewActivity.this,languages);
 
-        //It is required to recreate the activity to reflect the change in UI.
-        recreate();
 
 
     }
